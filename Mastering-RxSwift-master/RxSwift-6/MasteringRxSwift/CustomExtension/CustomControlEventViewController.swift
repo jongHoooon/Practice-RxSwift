@@ -47,11 +47,12 @@ class CustomControlEventViewController: UIViewController {
         inputField.leftView = paddingView
         inputField.leftViewMode = .always
         
-        inputField.rx.text
-            .map { $0?.count ?? 0 }
-            .map { "\($0)" }
-            .bind(to: countLabel.rx.text)
-            .disposed(by: bag)
+        // binder, property, event
+//        inputField.rx.text
+//            .map { $0?.count ?? 0 }
+//            .map { "\($0)" }
+//            .bind(to: countLabel.rx.text)
+//            .disposed(by: bag)
         
         doneButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
@@ -59,18 +60,69 @@ class CustomControlEventViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        inputField.delegate = self
+//        inputField.delegate = self
+        
+        inputField.rx.editingDidBegin
+            .map { UIColor.red }
+            .bind(to: inputField.rx.boderColor)
+            .disposed(by: bag)
+        
+        inputField.rx.editingDidEnd
+            .map { UIColor.gray }
+            .bind(to: inputField.rx.boderColor)
+            .disposed(by: bag)
+        
+//        inputField.rx.editingDidChange
+//            .map { self.inputField.text?.count ?? 0}
+//            .map { "\($0)" }
+//            .bind(to: countLabel.rx.text)
+//            .disposed(by: bag)
+            
+        inputField.rx.text
+            .bind(to: countLabel.rx.countingText)
+            .disposed(by: bag)
     }
 }
 
-extension CustomControlEventViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.red.cgColor
+extension Reactive where Base: UILabel {
+    
+    var countingText: Binder<String?> {
+        return Binder(self.base) { label, string in
+            let count = "\(string?.count ?? 0)"
+            label.text = count
+        }
+    }
+}
+
+extension Reactive where Base: UITextField {
+    
+    var boderColor: Binder<UIColor?> {
+        return Binder(self.base) { textField, color in
+            textField.layer.borderColor = color?.cgColor
+        }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.gray.cgColor
+    var editingDidBegin: ControlEvent<Void> {
+        return controlEvent(.editingDidBegin)
+    }
+    
+    var editingDidEnd: ControlEvent<Void> {
+        return controlEvent(.editingDidEnd)
+    }
+    
+    var editingDidChange: ControlEvent<Void> {
+        return controlEvent(.editingChanged)
     }
 }
 
 
+
+//extension CustomControlEventViewController: UITextFieldDelegate {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.layer.borderColor = UIColor.red.cgColor
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        textField.layer.borderColor = UIColor.gray.cgColor
+//    }
+//}
