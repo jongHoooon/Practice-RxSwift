@@ -44,8 +44,6 @@ o.scan(0, accumulator: +)
 
 print("== reduce")
 
-
-
-
-
-
+o.reduce(0, accumulator: +, mapResult: { $0 * 2})
+    .subscribe { print($0) }
+    .disposed(by: bag)

@@ -37,7 +37,14 @@ func currentTimeString() -> String {
 }
 
 
-
+Observable<Int>
+    .interval(.seconds(1),
+              scheduler: MainScheduler.instance)
+    .take(10)
+    .debug()
+    .delaySubscription(.seconds(7), scheduler: MainScheduler.instance)
+    .subscribe { print(currentTimeString(), $0)}
+    .disposed(by: bag)
 
 
 

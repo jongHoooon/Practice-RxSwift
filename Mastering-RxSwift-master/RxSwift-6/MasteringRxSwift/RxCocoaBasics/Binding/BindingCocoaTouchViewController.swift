@@ -45,8 +45,9 @@ class BindingCocoaTouchViewController: UIViewController {
 }
 
 extension BindingCocoaTouchViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         guard let currentText = textField.text else {
             return true
         }

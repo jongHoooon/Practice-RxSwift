@@ -25,6 +25,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
+// 읽기 쓰기 모두 가능
 class CustomControlPropertyViewController: UIViewController {
     
     let bag = DisposeBag()

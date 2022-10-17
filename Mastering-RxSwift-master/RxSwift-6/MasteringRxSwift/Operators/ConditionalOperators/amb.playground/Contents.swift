@@ -41,8 +41,16 @@ let c = PublishSubject<String>()
 
 
 
+a.amb(b)
+    .subscribe { print($0) }
+    .disposed(by: bag)
+
+a.onNext("A")
+b.onNext("B")
+a.onNext("A")
+b.onNext("B")
+
+a.onCompleted()
 
 
-
-
-
+Observable.amb([a, b, c])

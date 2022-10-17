@@ -30,4 +30,13 @@ import RxSwift
 
 let disposeBag = DisposeBag()
 
+let subject = PublishSubject<Int>()
 
+subject
+    .toArray()
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)
+
+subject.onNext(1)
+subject.onNext(2)
+subject.onCompleted()

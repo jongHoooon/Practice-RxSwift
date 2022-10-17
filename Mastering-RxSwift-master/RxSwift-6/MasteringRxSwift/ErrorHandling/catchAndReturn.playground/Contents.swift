@@ -37,6 +37,7 @@ enum MyError: Error {
 let subject = PublishSubject<Int>()
 
 subject
+    .catchAndReturn(-1)
     .subscribe { print($0) }
     .disposed(by: bag)
 

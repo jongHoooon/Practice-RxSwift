@@ -70,7 +70,7 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
     sourceObservable.onNext(greenCircle)
 }
 
-DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
     sourceObservable.onNext(blueCircle)
 }
 

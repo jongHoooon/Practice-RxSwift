@@ -23,6 +23,7 @@
 
 
 import UIKit
+import RxSwift
 
 class CocoaTouchGestureViewController: UIViewController {
     
@@ -35,7 +36,7 @@ class CocoaTouchGestureViewController: UIViewController {
         
         target.center.x += translation.x
         target.center.y += translation.y
-        
+         
         sender.setTranslation(.zero, in: view)
     }
     

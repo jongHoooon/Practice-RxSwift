@@ -31,7 +31,10 @@ import RxSwift
 let bag = DisposeBag()
 let numbers = [1, 2, 3, 4, 5]
 
-
-
-
+Observable.from(numbers)
+    .startWith(0)
+    .startWith(-1, -2)
+    .startWith(-3)
+    .subscribe { print($0) }
+    .disposed(by: bag)
 

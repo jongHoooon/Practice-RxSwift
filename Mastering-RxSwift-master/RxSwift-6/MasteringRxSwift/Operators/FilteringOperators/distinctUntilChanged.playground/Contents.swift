@@ -42,8 +42,32 @@ let persons = [
     Person(name: "Tim", age: 56)
 ]
 
+Observable.from(numbers)
+    .distinctUntilChanged()
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)
+
+//Observable.from(numbers)
+//    // 값이 홀수면 같은 값으로 생각 -> 연속된 홀수 제거
+//    .distinctUntilChanged { !$0.isMultiple(of: 2) && !$1.isMultiple(of: 2) }
+//    .subscribe { print($0) }
+//    .disposed(by: disposeBag)
+
+// 튜플에서 특정값을 기준으로 판단 가능
+Observable.from(tuples)
+    .distinctUntilChanged { $0.0 }
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)
+
+Observable.from(tuples)
+    .distinctUntilChanged { $0.1 }
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)
 
 
+// keyPath 사용
 
-
-
+Observable.from(persons)
+    .distinctUntilChanged(at: \.age)
+    .subscribe { print($0) }
+    .disposed(by: disposeBag)

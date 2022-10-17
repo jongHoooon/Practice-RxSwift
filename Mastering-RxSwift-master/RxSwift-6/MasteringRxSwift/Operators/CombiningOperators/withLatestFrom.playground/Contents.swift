@@ -37,6 +37,20 @@ enum MyError: Error {
 let trigger = PublishSubject<Void>()
 let data = PublishSubject<String>()
 
+trigger
+    .withLatestFrom(data)
+    .subscribe { print($0) }
+    .disposed(by: bag)
+
+data.onNext("Hello")
+trigger.onNext(())
+trigger.onNext(())
+
+
+//data.onCompleted()
+data.onError(MyError.error)
+
+trigger.onNext(())
 
 
 

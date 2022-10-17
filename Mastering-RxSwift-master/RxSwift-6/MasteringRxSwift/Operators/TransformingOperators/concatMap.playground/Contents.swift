@@ -39,7 +39,7 @@ let greenHeart = "💚"
 let blueHeart = "💙"
 
 Observable.from([redCircle, greenCircle, blueCircle])
-    .flatMap { circle -> Observable<String> in
+    .concatMap { circle -> Observable<String> in
         switch circle {
         case redCircle:
             return Observable.repeatElement(redHeart)
@@ -56,17 +56,3 @@ Observable.from([redCircle, greenCircle, blueCircle])
     }
     .subscribe { print($0) }
     .disposed(by: disposeBag)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

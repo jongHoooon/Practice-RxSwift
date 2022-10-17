@@ -40,11 +40,11 @@ let source = Observable<Int>.create { observer in
     let currentAttempts = attempts
     print("#\(currentAttempts) START")
     
-    if attempts < 3 {
+    if attempts < 0 {
         observer.onError(MyError.error)
         attempts += 1
     }
-    
+     
     observer.onNext(1)
     observer.onNext(2)
     observer.onCompleted()
@@ -55,10 +55,7 @@ let source = Observable<Int>.create { observer in
 }
 
 source
+    .retry(7)
     .subscribe { print($0) }
     .disposed(by: bag)
-
-
-
-
 

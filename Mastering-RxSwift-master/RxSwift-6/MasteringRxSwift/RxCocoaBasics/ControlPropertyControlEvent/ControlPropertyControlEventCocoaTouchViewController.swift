@@ -41,7 +41,10 @@ class ControlPropertyControlEventCocoaTouchViewController: UIViewController {
         let greenComponent = CGFloat(greenSlider.value) / 255
         let blueComponent = CGFloat(blueSlider.value) / 255
         
-        let color = UIColor(red: redComponent, green: greenComponent, blue: blueComponent, alpha: 1.0)
+        let color = UIColor(red: redComponent,
+                            green: greenComponent,
+                            blue: blueComponent,
+                            alpha: 1.0)
         colorView.backgroundColor = color
         
         updateComponentLabel()

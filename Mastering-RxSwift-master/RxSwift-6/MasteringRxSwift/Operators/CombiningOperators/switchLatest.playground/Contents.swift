@@ -37,8 +37,26 @@ enum MyError: Error {
 let a = PublishSubject<String>()
 let b = PublishSubject<String>()
 
+let source = PublishSubject<Observable<String>>()
 
+source
+    .switchLatest()
+    .subscribe { print($0) }
+    .disposed(by: bag)
 
+a.onNext("1")
+b.onNext("b")
 
+source.onNext(a)
 
+a.onNext("2")
 
+source.onNext(b)
+
+a.onNext("3")
+b.onNext("5")
+
+b.onError(MyError.error)
+
+a.onCompleted()
+b.onCompleted()

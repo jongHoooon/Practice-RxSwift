@@ -58,9 +58,11 @@ let source = Observable<Int>.create { observer in
 let trigger = PublishSubject<Void>()
 
 source
+    .retry { _ in trigger }
     .subscribe { print($0) }
     .disposed(by: bag)
 
 
 
-
+trigger.onNext(())
+trigger.onNext(())

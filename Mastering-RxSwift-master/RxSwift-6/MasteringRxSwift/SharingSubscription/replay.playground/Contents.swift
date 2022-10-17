@@ -30,8 +30,8 @@ import RxSwift
  */
 
 let bag = DisposeBag()
-let subject = PublishSubject<Int>()
-let source = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance).take(5).multicast(subject)
+//let subject = ReplaySubject<Int>.create(bufferSize: 5)
+let source = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance).take(5).replay(5)
 
 source
     .subscribe { print("🔵", $0) }
@@ -43,20 +43,5 @@ source
     .disposed(by: bag)
 
 source.connect()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

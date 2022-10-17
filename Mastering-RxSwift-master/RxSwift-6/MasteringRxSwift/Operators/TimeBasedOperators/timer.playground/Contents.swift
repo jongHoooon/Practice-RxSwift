@@ -30,9 +30,13 @@ import RxSwift
 
 let bag = DisposeBag()
 
+let subscription = Observable<Int>.timer(.seconds(1), period: .milliseconds(500), scheduler: MainScheduler.instance)
+    .subscribe { print($0) }
+//    .disposed(by: bag)
 
-
-
+DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+    subscription.dispose()
+}
 
 
 

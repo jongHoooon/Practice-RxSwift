@@ -41,21 +41,24 @@ class DriverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let result = inputField.rx.text
-            .flatMapLatest { validateText($0) }
+        let result = inputField.rx.text.asDriver()
+            .flatMapLatest {
+                validateText($0)
+                    .asDriver(onErrorJustReturn: false)
+            }
         
         result
             .map { $0 ? "Ok" : "Error" }
-            .bind(to: resultLabel.rx.text)
+            .drive(resultLabel.rx.text)
             .disposed(by: bag)
         
         result
             .map { $0 ? UIColor.blue : UIColor.red }
-            .bind(to: resultLabel.rx.backgroundColor)
+            .drive(resultLabel.rx.backgroundColor)
             .disposed(by: bag)
         
         result
-            .bind(to: sendButton.rx.isEnabled)
+            .drive(sendButton.rx.isEnabled)
             .disposed(by: bag)
         
     }

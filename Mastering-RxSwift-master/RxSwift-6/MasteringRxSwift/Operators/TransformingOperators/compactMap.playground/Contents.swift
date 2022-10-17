@@ -33,6 +33,7 @@ let disposeBag = DisposeBag()
 let subject = PublishSubject<String?>()
 
 subject
+    .compactMap { $0 }
     .subscribe { print($0) }
     .disposed(by: disposeBag)
 

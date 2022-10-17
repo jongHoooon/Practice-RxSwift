@@ -40,10 +40,8 @@ class BindingRxCocoaViewController: UIViewController {
         valueLabel.text = ""
         valueField.becomeFirstResponder()
         
-        
 //        valueField.rx.text
-//            .observe(on: MainScheduler.instance)
-//            .subscribe(onNext: { [weak self] str in
+//            .subscribe(onNext: { [weak self] str in     // 어떤 쓰레드에서 실행?
 //                self?.valueLabel.text = str
 //            })
 //            .disposed(by: disposeBag)
@@ -51,7 +49,6 @@ class BindingRxCocoaViewController: UIViewController {
         valueField.rx.text
             .bind(to: valueLabel.rx.text)
             .disposed(by: disposeBag)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

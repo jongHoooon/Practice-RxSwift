@@ -33,8 +33,22 @@ let bag = DisposeBag()
 
 let subject = PublishSubject<Int>()
 
+subject
+    .timeout(.seconds(3),
+             scheduler: MainScheduler.instance)
+    .subscribe { print($0) }
+    .disposed(by: bag)
 
+//subject
+//    .timeout(.seconds(3),
+//             other: Observable.just(0),
+//             scheduler: MainScheduler.instance)
+//    .subscribe { print($0) }
+//    .disposed(by: bag)
 
-
-
-
+Observable<Int>
+    .timer(.seconds(2),
+           period: .seconds(2),
+           scheduler: MainScheduler.instance)
+    .subscribe(onNext: { subject.onNext($0) })
+    .disposed(by: bag)

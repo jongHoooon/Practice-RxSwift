@@ -50,9 +50,9 @@ Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
    .disposed(by: disposeBag)
 
 
-Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
-   .debug()
-   .take(10)
-   .throttle(.milliseconds(2500), latest: false, scheduler: MainScheduler.instance)
-   .subscribe { print(currentTimeString(), $0) }
-   .disposed(by: disposeBag)
+//Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+//   .debug()
+//   .take(10)
+//   .throttle(.milliseconds(2500), latest: false, scheduler: MainScheduler.instance)
+//   .subscribe { print(currentTimeString(), $0) }
+//   .disposed(by: disposeBag)

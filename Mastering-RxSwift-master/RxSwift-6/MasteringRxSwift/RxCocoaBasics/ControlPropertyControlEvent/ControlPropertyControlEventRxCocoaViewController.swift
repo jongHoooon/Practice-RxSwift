@@ -51,6 +51,43 @@ class ControlPropertyControlEventRxCocoaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        redSlider.rx.value
+            .map { "\(Int($0))"}
+            .bind(to: redComponentLabel.rx.text)
+            .disposed(by: bag)
         
+        greenSlider.rx.value
+            .map { "\(Int($0))"}
+            .bind(to: greenComponentLabel.rx.text)
+            .disposed(by: bag)
+
+        blueSlider.rx.value
+            .map { "\(Int($0))"}
+            .bind(to: greenComponentLabel.rx.text)
+            .disposed(by: bag)
+        
+//        Observable
+//            .combineLatest([redSlider.rx.value,
+//                            greenSlider.rx.value,
+//                            blueSlider.rx.value])
+//            .map { UIColor(red: CGFloat($0[0] / 255),
+//                           green: CGFloat($0[1] / 255),
+//                           blue: CGFloat($0[2] / 255),
+//                           alpha: 1.0) }
+//            .bind(to: colorView.rx.backgroundClolr)
+//            .disposed(by: bag)
+        #warning("에러 발생 질문")
+
+        resetButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.colorView.backgroundColor = UIColor.black
+                
+                self?.redSlider.value = 0
+                self?.greenSlider.value = 0
+                self?.blueSlider.value = 0
+                
+                self?.updateComponentLabel()
+            })
+            .disposed(by: bag)
     }
 }

@@ -38,8 +38,8 @@ let redHeart = "❤️"
 let greenHeart = "💚"
 let blueHeart = "💙"
 
-Observable.from([redCircle, greenCircle, blueCircle])
-    .flatMap { circle -> Observable<String> in
+Observable.from([greenCircle, redCircle, blueCircle])
+    .flatMapFirst { circle -> Observable<String> in
         switch circle {
         case redCircle:
             return Observable.repeatElement(redHeart)
