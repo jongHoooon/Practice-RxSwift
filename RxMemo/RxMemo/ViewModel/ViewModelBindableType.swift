@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// ViewController에서 bindViewModel을 호출해주고 viewModel을 주입해준다.
 protocol ViewModelBindableType {
     associatedtype ViewModelType
     
@@ -15,10 +16,10 @@ protocol ViewModelBindableType {
     func bindViewModel()
 }
 
-/// ViewController에서 bindViewModel을 직접 호출하지 않게 해준다.
 extension ViewModelBindableType where Self: UIViewController {
     mutating func bind(viewModel: Self.ViewModelType) {
         self.viewModel = viewModel
+        loadViewIfNeeded()
         
         bindViewModel()
     }

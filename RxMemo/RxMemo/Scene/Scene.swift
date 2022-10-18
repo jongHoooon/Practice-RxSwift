@@ -27,7 +27,10 @@ extension Scene {
             guard var listVC = nav.viewControllers.first as? MemoListViewController else {
                 fatalError()
             }
-            listVC.bind(viewModel: memoListViewModel)
+            
+            DispatchQueue.main.async {
+                listVC.bind(viewModel: memoListViewModel)
+            }
             
             return nav
             
@@ -37,10 +40,12 @@ extension Scene {
                 fatalError()
             }
             
-            detailVC.bind(viewModel: memoDetailViewModel)
+            DispatchQueue.main.async {
+                detailVC.bind(viewModel: memoDetailViewModel)
+            }
             
             return detailVC
-
+            
         case .compose(let memoComposeViewModel):
             
             guard let nav = storyboard.instantiateViewController(withIdentifier: "ComposeNav") as? UINavigationController else {
@@ -51,7 +56,10 @@ extension Scene {
                 fatalError()
             }
             
-            composeVC.bind(viewModel: memoComposeViewModel)
+            DispatchQueue.main.async {
+                composeVC.bind(viewModel: memoComposeViewModel)
+            }
+            
             
             return nav
         }
