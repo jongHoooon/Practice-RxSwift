@@ -13,6 +13,7 @@ import RxSwift
 // 화면전환, 메모 저장 처리
 
 class MemoListViewModel: CommonViewModel {
+    
     var memoList: Observable<[Memo]> {
         return storage.memoList()
     }
