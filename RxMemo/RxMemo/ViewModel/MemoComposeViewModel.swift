@@ -28,7 +28,7 @@ class MemoComposeViewModel: CommonViewModel {
     // 파라미터로 받으면 이전화면에서 동적으로 결정할수있다.
     init(title: String,
          content: String? = nil,
-         sceneCoordinator: SceneCoordinator,
+         sceneCoordinator: SceneCoordinatorType,
          storage: MemoStorageType, saveAction: Action<String, Void>? = nil,
          cancelAction: CocoaAction? = nil) {
         self.content = content
