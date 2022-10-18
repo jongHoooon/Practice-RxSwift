@@ -11,6 +11,9 @@ import RxCocoa
 import Action
 
 class MemoComposeViewModel: CommonViewModel {
+    
+    /// 메모쓰기에서는 빈문자열 표시
+    /// 편집하기에서는 편집할 문자열 표시
     private let content: String?
     
     var initialText: Driver<String?> {
