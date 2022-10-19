@@ -23,13 +23,20 @@ class GeolocationService {
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         
+        // deferred는 구독할때 마다 받는다
         authorized = Observable.deferred { [weak locationManager] in
+            
                 let status = CLLocationManager.authorizationStatus()
+            
+                // 없으면 현재 상태 그냥 연결
                 guard let locationManager = locationManager else {
                     return Observable.just(status)
                 }
+            
+                // 있으면(한번이라도 해당 서비스를 사용했다면)
                 return locationManager
                     .rx.didChangeAuthorizationStatus
+                    // 변경이 일어나지 않았을 경우를 대비해서 앞에 현재상태 붙이기
                     .startWith(status)
             }
             .asDriver(onErrorJustReturn: CLAuthorizationStatus.notDetermined)

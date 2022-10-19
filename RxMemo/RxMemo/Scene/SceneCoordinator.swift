@@ -26,29 +26,32 @@ class SceneCoordinator: SceneCoordinatorType {
                     using style: TransitionStyle,
                     animated: Bool) -> Completable {
         
+        ///  화면전환 성공 실패만 방출한다, next event는 방출하지 않음
         let subject = PublishSubject<Never>()
         
         let target = scene.instantiate()
         
         switch style {
         case .root:
-            currentVC = target
+            currentVC = target.sceneViewController
             window.rootViewController = target
             subject.onCompleted()
             
         case .push:
+            
+            print(currentVC)
             guard let nav = currentVC.navigationController else {
                 subject.onError(TransitionError.navigationControllerMissing)
                 break
             }
             nav.pushViewController(target, animated: animated)
-            currentVC = target
+            currentVC = target.sceneViewController
             
         case .modal:
             currentVC.present(target, animated: animated) {
                 subject.onCompleted()
             }
-            currentVC = target
+            currentVC = target.sceneViewController
         }
         return subject.asCompletable()
     }
@@ -57,11 +60,11 @@ class SceneCoordinator: SceneCoordinatorType {
     @discardableResult
     func close(animated: Bool) -> Completable {
         
-        return Completable.create(subscribe: { [unowned self] completable in
+        return Completable.create { [unowned self] completable in
             
             if let presentingVC = self.currentVC.presentingViewController {
                 self.currentVC.dismiss(animated: animated) {
-                    self.currentVC = presentingVC
+                    self.currentVC = presentingVC.sceneViewController
                     completable(.completed)
                 }
             }
@@ -71,13 +74,14 @@ class SceneCoordinator: SceneCoordinatorType {
                     completable(.error(TransitionError.cannotPop))
                     return Disposables.create()
                 }
-                self.currentVC = nav.viewControllers.last!
+                self.currentVC = nav.viewControllers.last!.sceneViewController
+                print(currentVC)
                 completable(.completed)
             }
             else {
                 completable(.error(TransitionError.unknown))
             }
             return Disposables.create()
-        })
+        }
     }
 }

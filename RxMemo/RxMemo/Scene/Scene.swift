@@ -7,6 +7,14 @@
 
 import UIKit
 
+/// viewController를 embed 하고 있는 controller가 아니라 실제 화면에 표시되고 있는 viewController기준으로
+/// 전환을 처리하도록 구현
+extension UIViewController {
+    var sceneViewController: UIViewController {
+        return self.children.last ?? self
+    }
+}
+
 enum Scene {
     case list(MemoListViewModel)
     case detail(MemoDetailViewModel)

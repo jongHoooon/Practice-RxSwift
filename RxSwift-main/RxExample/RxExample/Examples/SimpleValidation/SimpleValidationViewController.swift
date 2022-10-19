@@ -30,7 +30,12 @@ class SimpleValidationViewController : ViewController {
         passwordValidOutlet.text = "Password has to be at least \(minimalPasswordLength) characters"
 
         let usernameValid = usernameOutlet.rx.text.orEmpty
-            .map { $0.count >= minimalUsernameLength }
+            .map { (element: ControlProperty<String>.Element) -> Bool in
+                
+                print("map 탔음")
+                return element.count >= minimalUsernameLength
+                
+            }
             .share(replay: 1) // without this map would be executed once for each binding, rx is stateless by default
 
         let passwordValid = passwordOutlet.rx.text.orEmpty

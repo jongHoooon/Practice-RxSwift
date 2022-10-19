@@ -27,7 +27,7 @@ class GeolocationViewController: ViewController {
     @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()   
         
         view.addSubview(noGeolocationView)
         

@@ -21,21 +21,23 @@ class MemoListViewModel: CommonViewModel {
     
     func makeCreateAction() -> CocoaAction {
         return CocoaAction { _ in
-            
             return self.storage.createMemo(content: "")
                 .flatMap { memo -> Observable<Void> in
                     
-                    let composeViewModel = MemoComposeViewModel(title: "새 메모",
-                                                                sceneCoordinator: self.sceneCoordinator,
-                                                                storage: self.storage,
-                                                                saveAction: self.performUpdate(memo: memo),
-                                                                cancelAction: self.performCancel(memo: memo))
-                    
+                    let composeViewModel = MemoComposeViewModel(
+                        title: "새 메모",
+                        sceneCoordinator: self.sceneCoordinator,
+                        storage: self.storage,
+                        saveAction: self.performUpdate(memo: memo),
+                        cancelAction: self.performCancel(memo: memo)
+                    )
                     let composerScene = Scene.compose(composeViewModel)
                     return self.sceneCoordinator
-                        .transition(to: composerScene,
-                                    using: .modal,
-                                    animated: true)
+                        .transition(
+                            to: composerScene,
+                            using: .modal,
+                            animated: true
+                        )
                         .asObservable()
                         .map { _ in }
                 }
@@ -55,20 +57,27 @@ class MemoListViewModel: CommonViewModel {
     }
     
     lazy var detailAction: Action<Memo, Void> = {
-       
+        
         return Action { memo in
-            let detailViewModel = MemoDetailViewModel(memo: memo,
-                                                      title: "메모 보기",
-                                                      sceneCoordinator: self.sceneCoordinator,
-                                                      storage: self.storage)
+            
+            print("in action")
+            print(memo)
+            
+            let detailViewModel = MemoDetailViewModel(
+                memo: memo,
+                title: "메모 보기",
+                sceneCoordinator: self.sceneCoordinator,
+                storage: self.storage
+            )
             let detailScene = Scene.detail(detailViewModel)
             
-            return self.sceneCoordinator.transition(to: detailScene,
-                                             using: .push,
-                                             animated: true)
+            return self.sceneCoordinator.transition(
+                to: detailScene,
+                using: .push,
+                animated: true
+            )
             .asObservable()
             .map { _ in }
         }
     }()
 }
-

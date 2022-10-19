@@ -42,13 +42,26 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
             }
             .disposed(by: rx.disposeBag)
         
+        var backButton = UIBarButtonItem(
+            title: nil,
+            style: .done,
+            target: nil,
+            action: nil)
+        
+        viewModel.title
+            .drive(backButton.rx.title)
+            .disposed(by: rx.disposeBag)
+        
+        backButton.rx.action = viewModel.popAction
+//        navigationItem.backBarButtonItem = backButton // backButton의 action은 기본 버튼으로 전달돼 leftItem 사용
+//        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = backButton
+
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
-
-    
 }
