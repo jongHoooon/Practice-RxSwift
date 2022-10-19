@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		07A1284650BE8F30F20FDDBF /* Pods_memo_app_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B3EA6D813352DC032FA792 /* Pods_memo_app_test.framework */; };
-		274E881A29004B6300F3256C /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 274E881929004B6300F3256C /* SwipeCellKit */; };
+		274E881C29005DE700F3256C /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E881B29005DE700F3256C /* MainVM.swift */; };
 		F2C22E7A25BC8B830050301E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C22E7925BC8B830050301E /* AppDelegate.swift */; };
 		F2C22E7C25BC8B830050301E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C22E7B25BC8B830050301E /* SceneDelegate.swift */; };
 		F2C22E7E25BC8B830050301E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C22E7D25BC8B830050301E /* MainVC.swift */; };
@@ -20,12 +20,12 @@
 		F2C22E9925BC98BC0050301E /* Cell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C22E9825BC98BC0050301E /* Cell+Ext.swift */; };
 		F2C22E9C25BC99D40050301E /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C22E9B25BC99D40050301E /* Memo.swift */; };
 		F2C22EA325BC9FC80050301E /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C22EA225BC9FC80050301E /* UserDefaultsManager.swift */; };
-		F2C22EB425BCDF3C0050301E /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2C22EB325BCDF3C0050301E /* SwipeCellKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14B3EA6D813352DC032FA792 /* Pods_memo_app_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memo_app_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		199C210EB10E122A11D6D752 /* Pods-memo_app_test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo_app_test.release.xcconfig"; path = "Target Support Files/Pods-memo_app_test/Pods-memo_app_test.release.xcconfig"; sourceTree = "<group>"; };
+		274E881B29005DE700F3256C /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		AFF894C5C8AEE4A3980F0440 /* Pods-memo_app_test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo_app_test.debug.xcconfig"; path = "Target Support Files/Pods-memo_app_test/Pods-memo_app_test.debug.xcconfig"; sourceTree = "<group>"; };
 		F2C22E7625BC8B830050301E /* memo_app_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memo_app_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2C22E7925BC8B830050301E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,8 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274E881A29004B6300F3256C /* SwipeCellKit in Frameworks */,
-				F2C22EB425BCDF3C0050301E /* SwipeCellKit in Frameworks */,
 				07A1284650BE8F30F20FDDBF /* Pods_memo_app_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,7 +60,6 @@
 				AFF894C5C8AEE4A3980F0440 /* Pods-memo_app_test.debug.xcconfig */,
 				199C210EB10E122A11D6D752 /* Pods-memo_app_test.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -98,6 +95,7 @@
 				F2C22E7925BC8B830050301E /* AppDelegate.swift */,
 				F2C22E7B25BC8B830050301E /* SceneDelegate.swift */,
 				F2C22E7D25BC8B830050301E /* MainVC.swift */,
+				274E881B29005DE700F3256C /* MainVM.swift */,
 				F2C22E7F25BC8B830050301E /* Main.storyboard */,
 				F2C22E8225BC8B850050301E /* Assets.xcassets */,
 				F2C22E8425BC8B850050301E /* LaunchScreen.storyboard */,
@@ -130,8 +128,6 @@
 			);
 			name = memo_app_test;
 			packageProductDependencies = (
-				F2C22EB325BCDF3C0050301E /* SwipeCellKit */,
-				274E881929004B6300F3256C /* SwipeCellKit */,
 			);
 			productName = memo_app_test;
 			productReference = F2C22E7625BC8B830050301E /* memo_app_test.app */;
@@ -161,8 +157,6 @@
 			);
 			mainGroup = F2C22E6D25BC8B830050301E;
 			packageReferences = (
-				F2C22EB225BCDF3C0050301E /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
-				274E881829004B6300F3256C /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
 			);
 			productRefGroup = F2C22E7725BC8B830050301E /* Products */;
 			projectDirPath = "";
@@ -241,6 +235,7 @@
 				F2C22E9C25BC99D40050301E /* Memo.swift in Sources */,
 				F2C22E9525BC91F50050301E /* MemoItemCell.swift in Sources */,
 				F2C22E7C25BC8B830050301E /* SceneDelegate.swift in Sources */,
+				274E881C29005DE700F3256C /* MainVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,38 +439,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		274E881829004B6300F3256C /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 2.7.0;
-			};
-		};
-		F2C22EB225BCDF3C0050301E /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		274E881929004B6300F3256C /* SwipeCellKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 274E881829004B6300F3256C /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
-			productName = SwipeCellKit;
-		};
-		F2C22EB325BCDF3C0050301E /* SwipeCellKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F2C22EB225BCDF3C0050301E /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
-			productName = SwipeCellKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2C22E6E25BC8B830050301E /* Project object */;
 }

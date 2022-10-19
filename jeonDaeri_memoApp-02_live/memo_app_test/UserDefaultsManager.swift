@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class UserDefaultsManager {
     
@@ -19,6 +21,13 @@ class UserDefaultsManager {
     
     
     //MARK: - 메모 관련
+    
+    private var list = [
+        Memo(content: "밥먹기", isDone: true),
+        Memo(content: "간식 먹기", isDone: false)
+        ]
+    
+    private lazy var store = BehaviorSubject<[Memo]>(value: list)
     
     /// 메모 목록 추가 및 저장하기
     /// - Parameter newValue: 저장할 값
@@ -38,18 +47,18 @@ class UserDefaultsManager {
     
     /// 저장된 메모 목록 가져오기
     /// - Returns: 저장된 값
-    func getMemoList() -> [Memo]? {
+    func getMemoList() -> Observable<[Memo]> {
         print("UserDefaultsManager - getMemoList() called")
         if let data = UserDefaults.standard.object(forKey: Key.memoList.rawValue) as? NSData {
             print("저장된 data: \(data.description)")
             do {
                 let memoList = try PropertyListDecoder().decode([Memo].self, from: data as Data)
-                return memoList
+                return
             } catch {
                 print("에러발생 getMemoList - error: \(error)")
             }
         }
-        return nil
+        return
     } // getMemoList()
     
 //    func clearMemo()

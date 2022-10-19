@@ -11,5 +11,6 @@ pod 'RxSwift'
 pod 'RxCocoa'
 pod 'Action'
 pod 'NSObject+Rx'
+pod 'SwipeCellKit'
 
 end

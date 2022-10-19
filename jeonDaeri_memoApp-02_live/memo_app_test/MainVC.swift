@@ -7,9 +7,14 @@
 
 import UIKit
 import SwipeCellKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 class MainVC: UIViewController {
 
+    fileprivate var mainVM = MainVM()
+    
     //MARK: - IBOutlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet var writeMemoBtn: UIBarButtonItem!
@@ -33,14 +38,14 @@ class MainVC: UIViewController {
 //            dummyData.append(Memo(content: "하핫! - index: \(index)", isDone: false))
 //        }
 
-        // UI 초기 설정
-        configUI()
         
         // 테이블뷰 설정
         configTableView()
         
         // 데이터 소스 설정
         configDatasource()
+        
+        bindViewModel()
         
         
         // 저장된 데이터 가져오기
@@ -51,6 +56,16 @@ class MainVC: UIViewController {
         }
 
     }// viewDidLoad()
+    
+    func bindViewModel() {
+        
+        /// configureUI
+        mainVM.title
+            .drive(self.rx.title)
+            .disposed(by: rx.disposeBag)
+        
+        
+    }
 
     
     @IBAction func writeMemoAction(){
@@ -64,12 +79,7 @@ class MainVC: UIViewController {
         UserDefaultsManager.shared.clearMemoList()
         clearAllDataAndApply()
     }
-    
-    fileprivate func configUI(){
-        print("MainVC - configUI() called")
-        title = "빡코딩 메모"
-    }
-    
+        
     fileprivate func configTableView(){
         print("MainVC - configTableView() called")
         
@@ -151,6 +161,7 @@ class MainVC: UIViewController {
         
         dataSource.apply(snapshot, animatingDifferences: animated)
     }
+    
     
     fileprivate func showNewMemoAC(){
         print("MainVC - showNewMemoAC() called")

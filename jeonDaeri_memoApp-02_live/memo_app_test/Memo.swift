@@ -54,6 +54,5 @@ class Memo: NSObject, NSCoding, NSSecureCoding, Codable {
         print("Memo - createNewMemo() called / newValue: \(newValue)")
         return Memo(content: newValue, isDone: false)
     }
-    
 }
 
