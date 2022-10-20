@@ -78,5 +78,9 @@ class GitHubSignupViewController1 : ViewController {
             })
             .disposed(by: disposeBag)
         view.addGestureRecognizer(tapBackground)
+
     }
 }
+
+
+
