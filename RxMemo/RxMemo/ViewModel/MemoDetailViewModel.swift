@@ -33,7 +33,7 @@ class MemoDetailViewModel: CommonViewModel {
         
         contents = BehaviorSubject<[String]>(value: [
             memo.content,
-            formatter.string(from: memo.insertData)
+            formatter.string(from: memo.insertDate)
         ])
         
         super.init(title: title,
@@ -55,9 +55,17 @@ class MemoDetailViewModel: CommonViewModel {
             guard let self = self else { return Observable.empty() }
             
             self.storage.update(memo: memo, content: input)
-                .map { [$0.content, self.formatter.string(from: $0.insertData)] }
+                .map {
+                    
+                    print($0.content)
+
+    
+                    return [$0.content, self.formatter.string(from: $0.insertDate)]
+                    
+                }
                 .bind(onNext: { self.contents.onNext($0)})
                 .disposed(by: self.rx.disposeBag)
+            
             
             return Observable.empty()
         }

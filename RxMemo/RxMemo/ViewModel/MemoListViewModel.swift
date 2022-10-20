@@ -18,7 +18,6 @@ typealias MemoSectionModel = AnimatableSectionModel<Int, Memo>
 
 class MemoListViewModel: CommonViewModel {
     
-    
     var memoList: Observable<[MemoSectionModel]> {
         return storage.memoList()
     }
