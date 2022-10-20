@@ -13,7 +13,7 @@ import NSObject_Rx
 
 class MemoDetailViewModel: CommonViewModel {
     
-    let memo: Memo
+    var memo: Memo
     
     private var formatter: DateFormatter = {
         let f = DateFormatter()
@@ -55,15 +55,11 @@ class MemoDetailViewModel: CommonViewModel {
             guard let self = self else { return Observable.empty() }
             
             self.storage.update(memo: memo, content: input)
+                .do(onNext: { self.memo = $0 })
                 .map {
-                    
-                    print($0.content)
-
-    
-                    return [$0.content, self.formatter.string(from: $0.insertDate)]
-                    
+                    [$0.content, self.formatter.string(from: $0.insertDate)]
                 }
-                .bind(onNext: { self.contents.onNext($0)})
+                .bind(onNext: { self.contents.onNext($0) })
                 .disposed(by: self.rx.disposeBag)
             
             
