@@ -87,5 +87,34 @@ class MemoDetailViewModel: CommonViewModel {
             .map { _ in }
         }
     }
+    
+    func makeDeleteAction() -> CocoaAction {
+        return Action { [weak self] input in
+            guard let self = self else { return Observable.empty() }
+            
+            self.storage.delete(memo: self.memo)
+            
+            return self.sceneCoordinator.close(animated: true)
+                .asObservable()
+                .map { _ in }
+        }
+    }
+    
+//    func makeShareAction() -> CocoaAction {
+//        return CocoaAction { [weak self] in
+//
+//            guard let self = self else { return Observable<Void>.empty() }
+//
+//            let memo = self.memo.content
+//            let activityVC = UIActivityViewController(
+//                activityItems: [memo],
+//                applicationActivities: nil
+//            )
+//
+//            return Observable.just(activityVC)
+//                .asObservable()
+//                .map { _ in }
+//        }
+//    }
 
 }

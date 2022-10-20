@@ -52,6 +52,7 @@ class SceneCoordinator: SceneCoordinatorType {
             }
             currentVC = target.sceneViewController
         }
+        
         return subject.asCompletable()
     }
     
