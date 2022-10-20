@@ -8,16 +8,34 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import RxDataSources
 import Action
 
 // 의존성 주입 initializer, bind에 사용되는 속성과 메소드
 // 화면전환, 메모 저장 처리
 
+typealias MemoSectionModel = AnimatableSectionModel<Int, Memo>
+
 class MemoListViewModel: CommonViewModel {
     
-    var memoList: Observable<[Memo]> {
+    
+    var memoList: Observable<[MemoSectionModel]> {
         return storage.memoList()
     }
+    
+    let dataSource: RxTableViewSectionedAnimatedDataSource<MemoSectionModel> = {
+        let ds = RxTableViewSectionedAnimatedDataSource<MemoSectionModel>(configureCell: {
+            dataSource, tableView, indexPath, memo -> UITableViewCell in
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = memo.content
+            return cell
+        })
+        
+        ds.canEditRowAtIndexPath = { _, _ in return true }
+        
+        return ds
+    }()
     
     func makeCreateAction() -> CocoaAction {
         return CocoaAction { _ in
