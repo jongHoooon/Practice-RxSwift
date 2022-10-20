@@ -59,10 +59,7 @@ class MemoListViewModel: CommonViewModel {
     lazy var detailAction: Action<Memo, Void> = {
         
         return Action { memo in
-            
-            print("in action")
-            print(memo)
-            
+                        
             let detailViewModel = MemoDetailViewModel(
                 memo: memo,
                 title: "메모 보기",

@@ -38,14 +38,13 @@ class SceneCoordinator: SceneCoordinatorType {
             subject.onCompleted()
             
         case .push:
-            
-            print(currentVC)
-            guard let nav = currentVC.navigationController else {
+                guard let nav = currentVC.navigationController else {
                 subject.onError(TransitionError.navigationControllerMissing)
                 break
             }
             nav.pushViewController(target, animated: animated)
             currentVC = target.sceneViewController
+            subject.onCompleted()
             
         case .modal:
             currentVC.present(target, animated: animated) {
@@ -75,7 +74,6 @@ class SceneCoordinator: SceneCoordinatorType {
                     return Disposables.create()
                 }
                 self.currentVC = nav.viewControllers.last!.sceneViewController
-                print(currentVC)
                 completable(.completed)
             }
             else {

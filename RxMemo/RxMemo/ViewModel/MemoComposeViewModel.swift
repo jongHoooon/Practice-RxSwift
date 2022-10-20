@@ -50,9 +50,11 @@ class MemoComposeViewModel: CommonViewModel {
                 .map { _ in }
         }
         
-        super.init(title: title,
-                   sceneCoordinator: sceneCoordinator,
-                   storage: storage)
+        super.init(
+            title: title,
+            sceneCoordinator: sceneCoordinator,
+            storage: storage
+        )
     }
 }
 
