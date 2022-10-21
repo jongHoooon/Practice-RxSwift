@@ -50,6 +50,8 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .bind(to: viewModel.deleteAction.inputs)
             .disposed(by: rx.disposeBag)
+        
+        listTableView.rx.setDataSource(self)
     }
     
     override func viewDidLoad() {
