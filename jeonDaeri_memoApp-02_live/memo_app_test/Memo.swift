@@ -30,6 +30,10 @@ class Memo: NSObject, NSCoding, NSSecureCoding, Codable, IdentifiableType {
         self.isDone = isDone
     }
     
+    func editMemo(content: String) {
+        self.content = content
+    }
+    
     //MARK: 모델 데이터 확인용
     var info : String {
         get{
