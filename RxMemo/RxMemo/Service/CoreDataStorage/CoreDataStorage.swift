@@ -54,7 +54,14 @@ class CoreDataStorage: MemoStorageType {
         return mainContext.rx.entities(
             Memo.self,
             sortDescriptors: [NSSortDescriptor(key: "insertDate", ascending: false)])
-        .map { results in [MemoSectionModel(model: 0, items: results)] }
+        .map { results in
+            
+//            print(#fileID, #function, #line, "- ")
+//            print(results)
+            
+            print([MemoSectionModel(model: 0, items: results)])
+            
+            return [MemoSectionModel(model: 0, items: results)] }
     }
     
     @discardableResult
