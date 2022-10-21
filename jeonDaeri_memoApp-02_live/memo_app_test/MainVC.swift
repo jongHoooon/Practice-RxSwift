@@ -7,9 +7,15 @@
 
 import UIKit
 import SwipeCellKit
+import RxSwift
+import RxCocoa
+import Action
+import NSObject_Rx
 
 class MainVC: UIViewController {
-
+    
+    let mainVM = MainVM()
+    
     //MARK: - IBOutlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet var writeMemoBtn: UIBarButtonItem!
@@ -33,14 +39,13 @@ class MainVC: UIViewController {
 //            dummyData.append(Memo(content: "하핫! - index: \(index)", isDone: false))
 //        }
 
-        // UI 초기 설정
-        configUI()
+        bindViewModel()
         
         // 테이블뷰 설정
         configTableView()
         
         // 데이터 소스 설정
-        configDatasource()
+//        configDatasource()
         
         
         // 저장된 데이터 가져오기
@@ -51,6 +56,21 @@ class MainVC: UIViewController {
         }
 
     }// viewDidLoad()
+    
+    func bindViewModel() {
+        
+        // MARK: - configureUI
+        mainVM.title
+            .bind(to: rx.title)
+            .disposed(by: rx.disposeBag)
+        
+        // MARK: - configureTableView
+        
+        mainVM.memoList
+            .bind(to: tableView.rx.items(dataSource: mainVM.dataSource))
+            .disposed(by: rx.disposeBag)
+        
+    }
 
     
     @IBAction func writeMemoAction(){
@@ -64,17 +84,12 @@ class MainVC: UIViewController {
         UserDefaultsManager.shared.clearMemoList()
         clearAllDataAndApply()
     }
-    
-    fileprivate func configUI(){
-        print("MainVC - configUI() called")
-        title = "빡코딩 메모"
-    }
-    
+        
     fileprivate func configTableView(){
         print("MainVC - configTableView() called")
         
-        let cellNib = UINib(nibName: MemoItemCell.reuseIdentifier, bundle: nil)
-        self.tableView.register(cellNib, forCellReuseIdentifier: MemoItemCell.reuseIdentifier)
+//        let cellNib = UINib(nibName: MemoItemCell.reuseIdentifier, bundle: nil)
+//        self.tableView.register(cellNib, forCellReuseIdentifier: MemoItemCell.reuseIdentifier)
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 100
@@ -101,18 +116,18 @@ class MainVC: UIViewController {
         })
     }
     
-    fileprivate func configDatasource(){
-        print("MainVC - configDatasource() called")
-        
-        dataSource = UITableViewDiffableDataSource<Section, Memo>(tableView: self.tableView, cellProvider: { (tableView: UITableView, indexPath: IndexPath, item: Memo) -> UITableViewCell? in
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: MemoItemCell.reuseIdentifier, for: indexPath) as! MemoItemCell
-            cell.delegate = self
-            cell.updateUI(with: item)
-
-            return cell
-        })
-    }
+//    fileprivate func configDatasource(){
+//        print("MainVC - configDatasource() called")
+//
+//        dataSource = UITableViewDiffableDataSource<Section, Memo>(tableView: self.tableView, cellProvider: { (tableView: UITableView, indexPath: IndexPath, item: Memo) -> UITableViewCell? in
+//
+//            let cell = tableView.dequeueReusableCell(withIdentifier: MemoItemCell.reuseIdentifier, for: indexPath) as! MemoItemCell
+//            cell.delegate = self
+//            cell.updateUI(with: item)
+//
+//            return cell
+//        })
+//    }
     
     fileprivate func viewWithImageName(_ imageName: String) -> UIView {
         let image = UIImage(named: imageName)

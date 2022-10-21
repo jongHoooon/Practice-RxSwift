@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274E88222902358C00F3256C /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E88212902358C00F3256C /* MainVM.swift */; };
 		3AEB2D1961E212EDCDFB0F7A /* Pods_memo_app_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656F0365F840DDEC9B4BBAB3 /* Pods_memo_app_test.framework */; };
 		F2C22E7A25BC8B830050301E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C22E7925BC8B830050301E /* AppDelegate.swift */; };
 		F2C22E7C25BC8B830050301E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C22E7B25BC8B830050301E /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		003B1821F764815520180789 /* Pods-memo_app_test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo_app_test.debug.xcconfig"; path = "Target Support Files/Pods-memo_app_test/Pods-memo_app_test.debug.xcconfig"; sourceTree = "<group>"; };
+		274E88212902358C00F3256C /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		656F0365F840DDEC9B4BBAB3 /* Pods_memo_app_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memo_app_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EDCB0B555363A0C1DD462B /* Pods-memo_app_test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo_app_test.release.xcconfig"; path = "Target Support Files/Pods-memo_app_test/Pods-memo_app_test.release.xcconfig"; sourceTree = "<group>"; };
 		F2C22E7625BC8B830050301E /* memo_app_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memo_app_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +62,6 @@
 				003B1821F764815520180789 /* Pods-memo_app_test.debug.xcconfig */,
 				B8EDCB0B555363A0C1DD462B /* Pods-memo_app_test.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -96,6 +97,7 @@
 				F2C22E7925BC8B830050301E /* AppDelegate.swift */,
 				F2C22E7B25BC8B830050301E /* SceneDelegate.swift */,
 				F2C22E7D25BC8B830050301E /* MainVC.swift */,
+				274E88212902358C00F3256C /* MainVM.swift */,
 				F2C22E7F25BC8B830050301E /* Main.storyboard */,
 				F2C22E8225BC8B850050301E /* Assets.xcassets */,
 				F2C22E8425BC8B850050301E /* LaunchScreen.storyboard */,
@@ -237,6 +239,7 @@
 				F2C22E9C25BC99D40050301E /* Memo.swift in Sources */,
 				F2C22E9525BC91F50050301E /* MemoItemCell.swift in Sources */,
 				F2C22E7C25BC8B830050301E /* SceneDelegate.swift in Sources */,
+				274E88222902358C00F3256C /* MainVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

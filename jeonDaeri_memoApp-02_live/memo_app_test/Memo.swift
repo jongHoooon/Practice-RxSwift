@@ -6,18 +6,21 @@
 //
 
 import Foundation
+import RxDataSources
 
 // 메모 섹션 - 일반, 즐겨찾기
 enum Section {
     case normal, pinned
 }
 
-class Memo: NSObject, NSCoding, NSSecureCoding, Codable {
+class Memo: NSObject, NSCoding, NSSecureCoding, Codable, IdentifiableType {
+    
+    typealias Identity = UUID
     
     static var supportsSecureCoding: Bool = true
     
     // 고유 아이디
-    let uuid: UUID = UUID()
+    let identity: UUID = UUID()
     private (set) var isDone: Bool
     private (set) var content: String
     
@@ -35,7 +38,7 @@ class Memo: NSObject, NSCoding, NSSecureCoding, Codable {
     }
     // Hashable 프로토콜 준수용
     static func == (lhs: Memo, rhs: Memo) -> Bool {
-        lhs.uuid == rhs.uuid
+        lhs.identity == rhs.identity
     }
     // NSCoding 을 사용할때 필요한 것들
     func encode(with coder: NSCoder) {
