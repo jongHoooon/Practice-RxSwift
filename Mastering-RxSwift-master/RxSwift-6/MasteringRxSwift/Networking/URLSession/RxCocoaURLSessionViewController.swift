@@ -25,6 +25,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import NSObject_Rx
+import Alamofire
 
 enum ApiError: Error {
     case badUrl
@@ -44,6 +45,8 @@ class RxCocoaURLSessionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loader.stopAnimating()
+        
         list
             .bind(to: listTableView.rx.items(cellIdentifier: "cell")) { row, element, cell in
                 cell.textLabel?.text = element.title
@@ -57,7 +60,110 @@ class RxCocoaURLSessionViewController: UIViewController {
     
     func fetchBookList() {
         
+            
+        //            let response = Observable.just(booksUrlStr)
+        //                .map { URL(string: $0)! }
+        //                .map { URLRequest(url: $0) }
+        //                .flatMap { URLSession.shared.rx.data(request: $0) }
+        //                .map(BookList.parse(data:))
+        //                .asDriver(onErrorJustReturn: [])
         
+        guard let url = URL(string: booksUrlStr) else {
+            print(#fileID, #function, #line, "- URL ERROR")
+            
+            print(ApiError.badUrl)
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        let response = URLSession.shared.rx.data(request: request)
+            .map(BookList.parse(data:))
+            .asDriver(onErrorJustReturn: [])
+        
+        response
+            .drive(list)
+            .disposed(by: rx.disposeBag)
+        
+        
+            
+            
+            
+            
+//        let response = Observable<[Book]>.create { [self] observer in
+            
+            //            guard let url = URL(string: "booksUrlStr") else {
+            //                observer.onError(ApiError.badUrl)
+            //                return Disposables.create()
+            //            }
+            //
+            //            let session = URLSession.shared
+            //
+            //            let task = session.dataTask(with: url) { (data, response, error) in
+            //
+            //                if let error = error {
+            //                    observer.onError(error)
+            //                    return
+            //                }
+            //
+            //                guard let httpResponse = response as? HTTPURLResponse else {
+            //                    observer.onError(ApiError.invalidResponse)
+            //                    return
+            //                }
+            //
+            //                guard (200...299).contains(httpResponse.statusCode) else {
+            //                    observer.onError(ApiError.failed(httpResponse.statusCode))
+            //                    return
+            //                }
+            //
+            //                guard let data = data else {
+            //                    observer.onError(ApiError.failed(httpResponse.statusCode))
+            //                    return
+            //                }
+            //
+            //                do {
+            //                    let decoder = JSONDecoder()
+            //                    let bookList = try decoder.decode(BookList.self, from: data)
+            //
+            //                    if bookList.code == 200 {
+            //                        observer.onNext(bookList.list)
+            //                    } else {
+            //                        observer.onNext([])
+            //                    }
+            //                    observer.onCompleted()
+            //                } catch {
+            //                    observer.onError(error)
+            //                }
+            //            }
+            //            task.resume()
+            //
+            //            return Disposables.create {
+            //                task.cancel()
+            //            }
+            //        }
+            //            .asDriver(onErrorJustReturn: [])
+            //
+            //        response
+            //            .drive(list)
+            //            .disposed(by: rx.disposeBag)
+            //
+            //        response
+            //            .map { _ in false }
+            //            .startWith(true)
+            //            .drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible)
+            //            .disposed(by: rx.disposeBag)
+            
+            
         
     }
 }
+
+
+/*
+ 
+ 1. Observable을 직접생성
+ 
+ 2. rxcoco가 제공하는 extension 사용
+ 
+ 3. git library 사용
+ 
+ */

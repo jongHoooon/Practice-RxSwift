@@ -51,7 +51,6 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
             .bind(to: viewModel.deleteAction.inputs)
             .disposed(by: rx.disposeBag)
         
-        listTableView.rx.setDataSource(self)
     }
     
     override func viewDidLoad() {
