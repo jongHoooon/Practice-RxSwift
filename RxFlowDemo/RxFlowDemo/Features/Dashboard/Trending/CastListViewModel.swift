@@ -13,6 +13,7 @@ import RxCocoa
 
 class CastListViewModel: ServicesViewModel, Stepper {
     let steps = PublishRelay<Step>()
+  
     typealias Services = HasCastsService
 
     private(set) var casts: [CastViewModel]

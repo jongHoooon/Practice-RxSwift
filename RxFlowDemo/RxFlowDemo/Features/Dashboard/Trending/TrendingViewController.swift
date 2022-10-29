@@ -60,10 +60,10 @@ class TrendingViewController: UIViewController, StoryboardBased, ViewModelBased 
     }
 
     private func selectSegmentWith(selectedIndex: Int) {
-        guard let currentViewController = pageViewController.viewControllers?.first,
-            let index = nestedViewControllers.firstIndex(of: currentViewController),
-            index != selectedIndex,
-            nestedViewControllers.count > selectedIndex else {
+        guard let currentViewController = pageViewController.viewControllers?.first, // 현재VC = pageVC의 첫번째
+            let index = nestedViewControllers.firstIndex(of: currentViewController), // index 현재vc의
+            index != selectedIndex,                                                  // index != 선택된 index
+            nestedViewControllers.count > selectedIndex else {                       // 내부 VC수 > index 인경우
                 return
         }
 
@@ -90,7 +90,7 @@ extension TrendingViewController: UIPageViewControllerDelegate {
             let currentViewController = pageViewController.viewControllers?.first,
             let index = nestedViewControllers.firstIndex(of: currentViewController) else {
             return
-        }
+        } 
 
         tabSegmentedControl.selectedSegmentIndex = index
     }

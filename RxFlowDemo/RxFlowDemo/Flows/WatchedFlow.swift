@@ -42,6 +42,7 @@ class WatchedFlow: Flow {
     }
   }
   
+  // push
   private func navigateToMovieListScreen() -> FlowContributors {
     let viewController = WatchedViewController.instantiate(withViewModel: WatchedViewModel(),
                                                            andServices: self.services)
@@ -51,6 +52,7 @@ class WatchedFlow: Flow {
     return .one(flowContributor: .contribute(withNextPresentable: viewController, withNextStepper: viewController.viewModel))
   }
   
+  // push
   private func navigateToMovieDetailScreen (with movieId: Int) -> FlowContributors {
     let viewController = MovieDetailViewController.instantiate(withViewModel: MovieDetailViewModel(withMovieId: movieId),
                                                                andServices: self.services)

@@ -30,3 +30,4 @@ class WatchedViewModel: ServicesViewModel, Stepper {
         self.steps.accept(DemoStep.movieIsPicked(withId: movieId))
     }
 }
+

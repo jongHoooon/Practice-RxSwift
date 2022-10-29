@@ -8,7 +8,6 @@
 
 import RxFlow
 
-// navigation state
 enum DemoStep: Step {
     // Global
     case logoutIsRequired
@@ -48,4 +47,3 @@ enum DemoStep: Step {
     // Cast List
     case castListAreRequired
 }
-
