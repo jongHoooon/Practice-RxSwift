@@ -20,6 +20,7 @@ struct Task: ModelType, Identifiable {
     self.memo = memo
   }
 
+  // 실패 가능 init
   init?(dictionary: [String: Any]) {
     guard let id = dictionary["id"] as? String,
       let title = dictionary["title"] as? String

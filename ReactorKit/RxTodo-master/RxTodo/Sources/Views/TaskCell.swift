@@ -79,5 +79,4 @@ final class TaskCell: BaseTableViewCell, View {
     )
     return height + Metric.cellPadding * 2
   }
-
 }

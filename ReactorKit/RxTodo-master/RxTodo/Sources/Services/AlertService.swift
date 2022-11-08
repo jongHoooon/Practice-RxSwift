@@ -54,5 +54,4 @@ final class AlertService: BaseService, AlertServiceType {
       }
     }
   }
-
 }

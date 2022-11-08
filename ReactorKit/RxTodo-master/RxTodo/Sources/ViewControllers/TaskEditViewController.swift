@@ -123,5 +123,4 @@ final class TaskEditViewController: BaseViewController, View {
       })
       .disposed(by: self.disposeBag)
   }
-
 }

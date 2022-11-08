@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C55ECC005EFC75C2EAEF7513 /* Pods_ReactorKitRxFlowPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F61B0C399BEE511A56D34A /* Pods_ReactorKitRxFlowPractice.framework */; };
+		ED13F2E6290E0D3100883D19 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13F2E5290E0D3100883D19 /* MainFlow.swift */; };
+		ED13F2EA290E140A00883D19 /* HomeFLow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13F2E9290E140A00883D19 /* HomeFLow.swift */; };
+		ED13F2EC290E180800883D19 /* MiddleFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13F2EB290E180800883D19 /* MiddleFlow.swift */; };
+		ED13F2EE290E186D00883D19 /* SettingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13F2ED290E186D00883D19 /* SettingFlow.swift */; };
+		ED13F2F1290E26F000883D19 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13F2F0290E26F000883D19 /* LoginVC.swift */; };
+		ED13F2F3290E26FF00883D19 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13F2F2290E26FF00883D19 /* LoginReactor.swift */; };
+		EDF2F86D290D881C005195C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F86C290D881C005195C6 /* AppDelegate.swift */; };
+		EDF2F86F290D881C005195C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F86E290D881C005195C6 /* SceneDelegate.swift */; };
+		EDF2F871290D881C005195C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F870290D881C005195C6 /* ViewController.swift */; };
+		EDF2F876290D881C005195C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF2F875290D881C005195C6 /* Assets.xcassets */; };
+		EDF2F879290D881C005195C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF2F877290D881C005195C6 /* LaunchScreen.storyboard */; };
+		EDF2F88F290D8FC8005195C6 /* SampleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F88E290D8FC8005195C6 /* SampleStep.swift */; };
+		EDF2F892290D9027005195C6 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F891290D9027005195C6 /* AppFlow.swift */; };
+		EDF2F894290D9173005195C6 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F893290D9173005195C6 /* ServiceProvider.swift */; };
+		EDF2F896290D91F0005195C6 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F895290D91F0005195C6 /* BaseService.swift */; };
+		EDF2F898290D924A005195C6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F897290D924A005195C6 /* NetworkService.swift */; };
+		EDF2F89A290D92AE005195C6 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F899290D92AE005195C6 /* LoginService.swift */; };
+		EDF2F89D290D992F005195C6 /* NetworkManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F89C290D992F005195C6 /* NetworkManagerType.swift */; };
+		EDF2F8A0290D999D005195C6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F89F290D999D005195C6 /* Models.swift */; };
+		EDF2F8A2290D99FA005195C6 /* TestNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F8A1290D99FA005195C6 /* TestNetworkManager.swift */; };
+		EDF2F8A5290DA12B005195C6 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2F8A4290DA12B005195C6 /* LoginFlow.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		46F35CC95DC2F260B4F154E4 /* Pods-ReactorKitRxFlowPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorKitRxFlowPractice.release.xcconfig"; path = "Target Support Files/Pods-ReactorKitRxFlowPractice/Pods-ReactorKitRxFlowPractice.release.xcconfig"; sourceTree = "<group>"; };
+		4EBB87A0E8914729ED7E2162 /* Pods-ReactorKitRxFlowPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorKitRxFlowPractice.debug.xcconfig"; path = "Target Support Files/Pods-ReactorKitRxFlowPractice/Pods-ReactorKitRxFlowPractice.debug.xcconfig"; sourceTree = "<group>"; };
+		D7F61B0C399BEE511A56D34A /* Pods_ReactorKitRxFlowPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactorKitRxFlowPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED13F2E5290E0D3100883D19 /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
+		ED13F2E9290E140A00883D19 /* HomeFLow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFLow.swift; sourceTree = "<group>"; };
+		ED13F2EB290E180800883D19 /* MiddleFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleFlow.swift; sourceTree = "<group>"; };
+		ED13F2ED290E186D00883D19 /* SettingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFlow.swift; sourceTree = "<group>"; };
+		ED13F2F0290E26F000883D19 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		ED13F2F2290E26FF00883D19 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
+		EDF2F869290D881C005195C6 /* ReactorKitRxFlowPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorKitRxFlowPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF2F86C290D881C005195C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDF2F86E290D881C005195C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EDF2F870290D881C005195C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDF2F875290D881C005195C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDF2F878290D881C005195C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDF2F87A290D881C005195C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF2F88E290D8FC8005195C6 /* SampleStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStep.swift; sourceTree = "<group>"; };
+		EDF2F891290D9027005195C6 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		EDF2F893290D9173005195C6 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		EDF2F895290D91F0005195C6 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		EDF2F897290D924A005195C6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EDF2F899290D92AE005195C6 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		EDF2F89C290D992F005195C6 /* NetworkManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerType.swift; sourceTree = "<group>"; };
+		EDF2F89F290D999D005195C6 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		EDF2F8A1290D99FA005195C6 /* TestNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetworkManager.swift; sourceTree = "<group>"; };
+		EDF2F8A4290DA12B005195C6 /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDF2F866290D881C005195C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C55ECC005EFC75C2EAEF7513 /* Pods_ReactorKitRxFlowPractice.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		398E35A6B48F6A47A18C5D8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7F61B0C399BEE511A56D34A /* Pods_ReactorKitRxFlowPractice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBBE7EA54F8F2CDFE30785F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4EBB87A0E8914729ED7E2162 /* Pods-ReactorKitRxFlowPractice.debug.xcconfig */,
+				46F35CC95DC2F260B4F154E4 /* Pods-ReactorKitRxFlowPractice.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED13F2E7290E13EA00883D19 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F8A4290DA12B005195C6 /* LoginFlow.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		ED13F2E8290E13F500883D19 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				ED13F2E5290E0D3100883D19 /* MainFlow.swift */,
+				ED13F2E9290E140A00883D19 /* HomeFLow.swift */,
+				ED13F2EB290E180800883D19 /* MiddleFlow.swift */,
+				ED13F2ED290E186D00883D19 /* SettingFlow.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		ED13F2EF290E26DD00883D19 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				ED13F2F0290E26F000883D19 /* LoginVC.swift */,
+				ED13F2F2290E26FF00883D19 /* LoginReactor.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		EDF2F860290D881B005195C6 = {
+			isa = PBXGroup;
+			children = (
+				EDF2F86B290D881C005195C6 /* ReactorKitRxFlowPractice */,
+				EDF2F86A290D881C005195C6 /* Products */,
+				CBBE7EA54F8F2CDFE30785F7 /* Pods */,
+				398E35A6B48F6A47A18C5D8D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EDF2F86A290D881C005195C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F869290D881C005195C6 /* ReactorKitRxFlowPractice.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDF2F86B290D881C005195C6 /* ReactorKitRxFlowPractice */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F882290D8934005195C6 /* Sources */,
+				EDF2F881290D8925005195C6 /* Resources */,
+				EDF2F880290D8912005195C6 /* Support */,
+			);
+			path = ReactorKitRxFlowPractice;
+			sourceTree = "<group>";
+		};
+		EDF2F880290D8912005195C6 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F87A290D881C005195C6 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		EDF2F881290D8925005195C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F875290D881C005195C6 /* Assets.xcassets */,
+				EDF2F877290D881C005195C6 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EDF2F882290D8934005195C6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F883290D896D005195C6 /* Application */,
+				EDF2F88C290D8994005195C6 /* Common */,
+				EDF2F88B290D8990005195C6 /* Services */,
+				EDF2F88A290D898E005195C6 /* Network */,
+				EDF2F889290D8988005195C6 /* Flows */,
+				EDF2F884290D8981005195C6 /* Scenes */,
+				EDF2F870290D881C005195C6 /* ViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EDF2F883290D896D005195C6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F86C290D881C005195C6 /* AppDelegate.swift */,
+				EDF2F86E290D881C005195C6 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		EDF2F884290D8981005195C6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				ED13F2EF290E26DD00883D19 /* LoginVC */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EDF2F889290D8988005195C6 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F88D290D8FB9005195C6 /* Step */,
+				EDF2F890290D900E005195C6 /* Flows */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		EDF2F88A290D898E005195C6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F89C290D992F005195C6 /* NetworkManagerType.swift */,
+				EDF2F8A1290D99FA005195C6 /* TestNetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EDF2F88B290D8990005195C6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F893290D9173005195C6 /* ServiceProvider.swift */,
+				EDF2F895290D91F0005195C6 /* BaseService.swift */,
+				EDF2F897290D924A005195C6 /* NetworkService.swift */,
+				EDF2F899290D92AE005195C6 /* LoginService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EDF2F88C290D8994005195C6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F89E290D999D005195C6 /* Model */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EDF2F88D290D8FB9005195C6 /* Step */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F88E290D8FC8005195C6 /* SampleStep.swift */,
+			);
+			path = Step;
+			sourceTree = "<group>";
+		};
+		EDF2F890290D900E005195C6 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F891290D9027005195C6 /* AppFlow.swift */,
+				ED13F2E7290E13EA00883D19 /* Login */,
+				ED13F2E8290E13F500883D19 /* Main */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		EDF2F89E290D999D005195C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDF2F89F290D999D005195C6 /* Models.swift */,
+			);
+			name = Model;
+			path = "../../../../RxFlow_ReactorKit-main/Practice_RxFlow/Sources/Common/Model";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDF2F868290D881C005195C6 /* ReactorKitRxFlowPractice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF2F87D290D881C005195C6 /* Build configuration list for PBXNativeTarget "ReactorKitRxFlowPractice" */;
+			buildPhases = (
+				7A004DD9681069B2AAD8D3A2 /* [CP] Check Pods Manifest.lock */,
+				EDF2F865290D881C005195C6 /* Sources */,
+				EDF2F866290D881C005195C6 /* Frameworks */,
+				EDF2F867290D881C005195C6 /* Resources */,
+				5641B9E3DA08A648AA54F0F4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReactorKitRxFlowPractice;
+			productName = ReactorKitRxFlowPractice;
+			productReference = EDF2F869290D881C005195C6 /* ReactorKitRxFlowPractice.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDF2F861290D881B005195C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					EDF2F868290D881C005195C6 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = EDF2F864290D881B005195C6 /* Build configuration list for PBXProject "ReactorKitRxFlowPractice" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDF2F860290D881B005195C6;
+			productRefGroup = EDF2F86A290D881C005195C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDF2F868290D881C005195C6 /* ReactorKitRxFlowPractice */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDF2F867290D881C005195C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF2F879290D881C005195C6 /* LaunchScreen.storyboard in Resources */,
+				EDF2F876290D881C005195C6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5641B9E3DA08A648AA54F0F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactorKitRxFlowPractice/Pods-ReactorKitRxFlowPractice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactorKitRxFlowPractice/Pods-ReactorKitRxFlowPractice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactorKitRxFlowPractice/Pods-ReactorKitRxFlowPractice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A004DD9681069B2AAD8D3A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReactorKitRxFlowPractice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDF2F865290D881C005195C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF2F8A0290D999D005195C6 /* Models.swift in Sources */,
+				EDF2F89D290D992F005195C6 /* NetworkManagerType.swift in Sources */,
+				ED13F2EC290E180800883D19 /* MiddleFlow.swift in Sources */,
+				ED13F2E6290E0D3100883D19 /* MainFlow.swift in Sources */,
+				ED13F2EE290E186D00883D19 /* SettingFlow.swift in Sources */,
+				EDF2F894290D9173005195C6 /* ServiceProvider.swift in Sources */,
+				EDF2F871290D881C005195C6 /* ViewController.swift in Sources */,
+				EDF2F8A2290D99FA005195C6 /* TestNetworkManager.swift in Sources */,
+				EDF2F898290D924A005195C6 /* NetworkService.swift in Sources */,
+				ED13F2EA290E140A00883D19 /* HomeFLow.swift in Sources */,
+				EDF2F88F290D8FC8005195C6 /* SampleStep.swift in Sources */,
+				EDF2F89A290D92AE005195C6 /* LoginService.swift in Sources */,
+				EDF2F86D290D881C005195C6 /* AppDelegate.swift in Sources */,
+				ED13F2F3290E26FF00883D19 /* LoginReactor.swift in Sources */,
+				EDF2F896290D91F0005195C6 /* BaseService.swift in Sources */,
+				ED13F2F1290E26F000883D19 /* LoginVC.swift in Sources */,
+				EDF2F8A5290DA12B005195C6 /* LoginFlow.swift in Sources */,
+				EDF2F892290D9027005195C6 /* AppFlow.swift in Sources */,
+				EDF2F86F290D881C005195C6 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EDF2F877290D881C005195C6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF2F878290D881C005195C6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDF2F87B290D881C005195C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDF2F87C290D881C005195C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDF2F87E290D881C005195C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EBB87A0E8914729ED7E2162 /* Pods-ReactorKitRxFlowPractice.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReactorKitRxFlowPractice/Support/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JongHoon.ReactorKitRxFlowPractice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDF2F87F290D881C005195C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46F35CC95DC2F260B4F154E4 /* Pods-ReactorKitRxFlowPractice.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReactorKitRxFlowPractice/Support/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JongHoon.ReactorKitRxFlowPractice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDF2F864290D881B005195C6 /* Build configuration list for PBXProject "ReactorKitRxFlowPractice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF2F87B290D881C005195C6 /* Debug */,
+				EDF2F87C290D881C005195C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF2F87D290D881C005195C6 /* Build configuration list for PBXNativeTarget "ReactorKitRxFlowPractice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF2F87E290D881C005195C6 /* Debug */,
+				EDF2F87F290D881C005195C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDF2F861290D881B005195C6 /* Project object */;
+}

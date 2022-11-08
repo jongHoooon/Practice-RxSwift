@@ -31,5 +31,4 @@ class BaseTableViewCell: UITableViewCell {
   func initialize() {
     // Override point
   }
-
 }

@@ -34,5 +34,4 @@ extension String {
     let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     return self.size(fits: size, font: font, maximumNumberOfLines: maximumNumberOfLines).height
   }
-
 }

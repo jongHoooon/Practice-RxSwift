@@ -310,7 +310,6 @@
 			children = (
 				1A8FBE2B1FF84B1C00389464 /* Protocols */,
 				EDCDFB6A290CF26400BAB935 /* Flows */,
-				1A8FBE3E1FF84B8700389464 /* Features */,
 				1A8FBE201FF847FA00389464 /* Services */,
 				1A8FBE391FF84B7300389464 /* Models */,
 				1AF854B21FF832AE00271B52 /* AppDelegate.swift */,
@@ -340,9 +339,10 @@
 				EDCDFB70290CF26400BAB935 /* WishlistFlow.swift */,
 				EDCDFB6C290CF26400BAB935 /* WatchedFlow.swift */,
 				EDCDFB6D290CF26400BAB935 /* SettingsFlow.swift */,
+				EDCDFB74290CF26400BAB935 /* CastListFlow.swift */,
 				EDCDFB6B290CF26400BAB935 /* TrendingFlow.swift */,
 				EDCDFB72290CF26400BAB935 /* TrendingMovieFlow.swift */,
-				EDCDFB74290CF26400BAB935 /* CastListFlow.swift */,
+				1A8FBE3E1FF84B8700389464 /* Features */,
 			);
 			path = Flows;
 			sourceTree = "<group>";

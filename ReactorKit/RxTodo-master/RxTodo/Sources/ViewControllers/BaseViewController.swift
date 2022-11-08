@@ -10,6 +10,8 @@ import UIKit
 
 import RxSwift
 
+
+
 class BaseViewController: UIViewController {
 
   // MARK: Initializing
@@ -47,5 +49,5 @@ class BaseViewController: UIViewController {
   func setupConstraints() {
     // Override point
   }
-
+  
 }

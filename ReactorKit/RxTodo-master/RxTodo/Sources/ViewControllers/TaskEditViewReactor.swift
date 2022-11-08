@@ -38,9 +38,9 @@ enum TaskEditViewCancelAlertAction: AlertActionType {
 final class TaskEditViewReactor: Reactor {
 
   enum Action {
-    case updateTaskTitle(String)
-    case cancel
-    case submit
+    case updateTaskTitle(String)  // textField에 입력
+    case cancel                   // cancel 버튼
+    case submit                   // done 버튼
   }
 
   enum Mutation {
@@ -49,11 +49,11 @@ final class TaskEditViewReactor: Reactor {
   }
 
   struct State {
-    var title: String
-    var taskTitle: String
-    var canSubmit: Bool
-    var shouldConfirmCancel: Bool
-    var isDismissed: Bool
+    var title: String               // 제목
+    var taskTitle: String           // textfield 값
+    var canSubmit: Bool             // 글자 입력해야 done 버튼 활성화
+    var shouldConfirmCancel: Bool   //
+    var isDismissed: Bool           // dismiss
 
     init(title: String, taskTitle: String, canSubmit: Bool) {
       self.title = title
@@ -104,6 +104,7 @@ final class TaskEditViewReactor: Reactor {
         return .just(.dismiss) // no need to confirm
       }
       let alertActions: [TaskEditViewCancelAlertAction] = [.leave, .stay]
+      #warning("????")
       return self.provider.alertService
         .show(
           title: "Really?",

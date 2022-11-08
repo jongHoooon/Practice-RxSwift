@@ -138,3 +138,4 @@ class WishlistStepper: Stepper {
         self.steps.accept(DemoStep.settingsAreRequired)
     }
 }
+

@@ -24,21 +24,14 @@ final class TaskListViewController: BaseViewController, View {
 
 
   // MARK: Properties
-  
-//  let dataSource = RxTableViewSectionedReloadDataSource<TaskListSection>(
-//    configureCell: { _, tableView, indexPath, reactor in
-//      let cell = tableView.dequeue(Reusable.taskCell, for: indexPath)
-//      cell.reactor = reactor
-//      return cell
-//  })
 
   let dataSource = RxTableViewSectionedReloadDataSource<TaskListSection>(
     configureCell: { _, tableView, indexPath, reactor in
-      let cell = tableView.
+      let cell = tableView.dequeue(Reusable.taskCell, for: indexPath)
       cell.reactor = reactor
       return cell
   })
-  
+
   let addButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
   let tableView = UITableView().then {
     $0.allowsSelectionDuringEditing = true
@@ -89,7 +82,7 @@ final class TaskListViewController: BaseViewController, View {
       .map { Reactor.Action.refresh }
       .bind(to: reactor.action)
       .disposed(by: self.disposeBag)
-
+    
     self.editButtonItem.rx.tap
       .map { Reactor.Action.toggleEditing }
       .bind(to: reactor.action)
@@ -111,6 +104,7 @@ final class TaskListViewController: BaseViewController, View {
       .bind(to: reactor.action)
       .disposed(by: self.disposeBag)
 
+    // add button 화면 전홙
     self.addButtonItem.rx.tap
       .map(reactor.reactorForCreatingTask)
       .subscribe(onNext: { [weak self] reactor in
@@ -147,7 +141,6 @@ final class TaskListViewController: BaseViewController, View {
       })
       .disposed(by: self.disposeBag)
   }
-
 }
 
 

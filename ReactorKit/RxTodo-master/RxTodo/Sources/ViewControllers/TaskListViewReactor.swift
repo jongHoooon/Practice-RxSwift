@@ -11,16 +11,19 @@ import RxCocoa
 import RxDataSources
 import RxSwift
 
+// RxDataSources 사용
 typealias TaskListSection = SectionModel<Void, TaskCellReactor>
 
 final class TaskListViewReactor: Reactor {
 
+  // 화면전환은 밖에서
+  
   enum Action {
-    case refresh
-    case toggleEditing
-    case toggleTaskDone(IndexPath)
-    case deleteTask(IndexPath)
-    case moveTask(IndexPath, IndexPath)
+    case refresh                            // viewDidLoad시
+    case toggleEditing                      // Edit btn 클릭시
+    case toggleTaskDone(IndexPath)          // tableView Cell 클릭시
+    case deleteTask(IndexPath)              // rx.itemDeleted
+    case moveTask(IndexPath, IndexPath)     // rx.itemMoved
   }
 
   enum Mutation {
@@ -33,10 +36,11 @@ final class TaskListViewReactor: Reactor {
   }
 
   struct State {
-    var isEditing: Bool
-    var sections: [TaskListSection]
+    var isEditing: Bool                      // 편집 상태 표시
+    var sections: [TaskListSection]          // table view sections
   }
 
+  // MARK: - Property
   let provider: ServiceProviderType
   let initialState: State
 
@@ -48,16 +52,13 @@ final class TaskListViewReactor: Reactor {
     )
   }
 
-  // Action -> Mutation
+  // 원래 mutate
   func mutate(action: Action) -> Observable<Mutation> {
     switch action {
     case .refresh:
-      // 1) task fetch
       return self.provider.taskService.fetchTasks()
         .map { tasks in
-          // 2) task -> TaskCellReactor로 초기화
           let sectionItems = tasks.map(TaskCellReactor.init)
-          // 3) section 설정
           let section = TaskListSection(model: Void(), items: sectionItems)
           return .setSections([section])
         }
@@ -67,7 +68,6 @@ final class TaskListViewReactor: Reactor {
 
     case let .toggleTaskDone(indexPath):
       let task = self.currentState.sections[indexPath].currentState
-      
       if !task.isDone {
         return self.provider.taskService.markAsDone(taskID: task.id).flatMap { _ in Observable.empty() }
       } else {
@@ -75,6 +75,7 @@ final class TaskListViewReactor: Reactor {
       }
 
     case let .deleteTask(indexPath):
+      // service에서 처리
       let task = self.currentState.sections[indexPath].currentState
       return self.provider.taskService.delete(taskID: task.id).flatMap { _ in Observable.empty() }
 
@@ -85,17 +86,24 @@ final class TaskListViewReactor: Reactor {
     }
   }
 
+  // Action 없이 mutation 발생한다.
+  // 원래 있던 mutate()에서 발생한 이벤트와 TaskService().event에 있는 것을 같이 방출하는 메소드
+  //
   func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+    
     let taskEventMutation = self.provider.taskService.event
       .flatMap { [weak self] taskEvent -> Observable<Mutation> in
         self?.mutate(taskEvent: taskEvent) ?? .empty()
       }
     return Observable.of(mutation, taskEventMutation).merge()
   }
+  
 
-
+  // action을 변수로 받지 않고 TaskEvent를 변수로 받는다.
+  // action 별로 mutation 수행
   private func mutate(taskEvent: TaskEvent) -> Observable<Mutation> {
     let state = self.currentState
+    
     switch taskEvent {
     case let .create(task):
       let indexPath = IndexPath(item: 0, section: 0)
@@ -132,7 +140,7 @@ final class TaskListViewReactor: Reactor {
     }
   }
 
-  // mutation -> State
+  // 화면에 보여지는 거 수정
   func reduce(state: State, mutation: Mutation) -> State {
     var state = state
     switch mutation {
@@ -181,7 +189,7 @@ final class TaskListViewReactor: Reactor {
     let task = taskCellReactor.currentState
     return TaskEditViewReactor(provider: self.provider, mode: .edit(task))
   }
-
 }
 
 
+// VC에서 action 발생 -> Reactor에서 action에 맞는 mutation실행 service 한테 요청 -> service에서 업데이트 후 내부 PublishSubject에 onNext 발생 -> Reactor에서 구독하고 있다가 event onNext 오면 mutate 시킨 후 reduce실행
